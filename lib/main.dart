@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     // function to force re render of ui
     setState(() {
       _questionIndex = _questionIndex + 1;
@@ -44,21 +45,9 @@ class _MyAppState extends State<MyApp> {
             Question(
               questions[_questionIndex],
             ),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: answerQuestion,
-            ),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: () => print('Answer 2 choosen!'),
-            ),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: () {
-                // ...
-                print('Answer 3 chosen');
-              },
-            ),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion), 
+            Answer(_answerQuestion),
           ],
         ),
       ),
